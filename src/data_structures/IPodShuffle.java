@@ -1,22 +1,59 @@
 package data_structures;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 // Copyright The League of Amazing Programmers, 2015
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Random;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
 /* 1. Download the JavaZoom jar from here: http://bit.ly/javazoom
  * 2. Right click your project and add it as an External JAR (Under Java Build Path > Libraries).*/
-public class IPodShuffle {
+public class IPodShuffle implements ActionListener {
+	JFrame frame= new JFrame();
+	JButton but = new JButton();
+	ArrayList<Song> Shuffle= new ArrayList <Song>();
+	Song song = new Song("future.mp3");
+	Song song2 = new Song("orchestra.mp3");
 	public static void main(String[] args) throws IOException, JavaLayerException {
+		
 		// 3. Find an mp3 on your computer or on the Internet.
 		// 4. Use the Song class below to instantiate a Song.
-		Song song = new Song("future.mp3");
+		
 		// 5. Play the Song to test that it works.
-		song.play();
+		
+		IPodShuffle ipod= new IPodShuffle();
+		
+		ipod.run();
+		
+	
+		
+		
+	
+	}
+	public void run() {
+		
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.setVisible(true);
+		but.setVisible(true);
+		frame.add(but);
+		but.setText("Suprise Me!");
+		but.addActionListener(this);
+		frame.pack();
+		Shuffle.add(song);
+		Shuffle.add(song2);
+		
 	}
 	/**
 	 * 6. Congratulations on completing the sound check!
@@ -27,6 +64,22 @@ public class IPodShuffle {
 	 * 
 	 * If you're really cool, you can stop all the songs, before playing a new one on subsequent button clicks.
 	 */
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+		if (e.getSource().equals(but)) {
+			Random rand= new Random();
+			int x= rand.nextInt(2);
+			if (x==1) {
+				Shuffle.get(0).play();
+			}
+			else if(x==2) {
+				Shuffle.get(1).play();
+				
+			}
+		}
+	}
 }
 class Song {
 	private int duration;
