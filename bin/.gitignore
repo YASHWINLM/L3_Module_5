@@ -1,13 +1,11 @@
+/CounterTest.class
 /Fibonacci.class
 /Randomness.class
 /Snakes.class
 /algorithms/
 /data_structures/
-/other/
-/unit_tests/
-/PeopleOnABus.class
-/CounterTest.class
 /metro.class
 /metroTest.class
-/CountingSheep.class
-/CountingSheepTest.class
+/other/
+/unit_tests/
+/threads/
