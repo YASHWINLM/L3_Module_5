@@ -28,13 +28,13 @@ public class Minion {
 		return color;
 	}
 
-	public Object getMaster() {
+	public String getMaster() {
 		// TODO Auto-generated method stub
 		return master;
 	}
 
 	public void setMaster(String string) {
-		this.master = master;
+		master = string;
 
 	}
 }
